@@ -1,0 +1,4 @@
+interface:
+  display_name: "Idea Generation"
+  short_description: "Unusual but workable ideas, checked for originality and feasibility"
+  default_prompt: "Use $idea-generation to give me ideas for: "

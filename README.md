@@ -1,6 +1,6 @@
 # idea-generation
 
-A Claude skill for brainstorming ideas that are unusual and still workable: side projects, small businesses, fundraisers, stories, startups. It works by first listing the ideas any chatbot would give, banning them, generating from structured prompts, and then running every idea past a skeptical judge before anything reaches you. If it can run Python, it also checks every idea against the obvious ones with a small local embedding model, so the sameness check is actual math.
+A Claude and OpenAI Codex skill for brainstorming ideas that are unusual and still workable: side projects, small businesses, fundraisers, stories, startups. It works by first listing the ideas any chatbot would give, banning them, generating from structured prompts, and then running every idea past a skeptical judge before anything reaches you. If it can run Python, it also checks every idea against the obvious ones with a small local embedding model, so the sameness check is actual math.
 
 ## Why AI ideas all sound the same
 
@@ -47,7 +47,7 @@ pip install sentence-transformers          # uses PyTorch
 pip install onnxruntime tokenizers numpy   # lighter; the script downloads the ONNX model once to ~/.cache/idea-generation
 ```
 
-If neither is installed, or the environment can't run code (Claude.ai chats without code execution, for example), the script exits with `NO_EMBEDDINGS` and the skill falls back to its word-based check: it estimates how likely a typical AI is to suggest each idea and drops the common ones.
+If neither is installed, or the environment can't run code (for example, a Claude.ai chat without code execution, or Codex's sandbox before the model is cached), the script exits with `NO_EMBEDDINGS` and the skill falls back to its word-based check: it estimates how likely a typical AI is to suggest each idea and drops the common ones.
 
 ## Install
 
@@ -61,6 +61,26 @@ cp -r idea-generation/idea-generation ~/.claude/skills/
 ```
 
 Optionally install one of the embedding packages above. Then ask for ideas as normal ("give me side project ideas, I have 5 hours a week"). The skill triggers on brainstorming requests.
+
+**OpenAI Codex (CLI, IDE extension, app):** Codex reads the same `SKILL.md`, so the folder works as is. Copy it into your Codex skills directory:
+
+```bash
+git clone https://github.com/bndrwe/idea-generation
+mkdir -p ~/.agents/skills
+cp -r idea-generation/idea-generation ~/.agents/skills/
+```
+
+You can also ask Codex's built-in installer for it: `$skill-installer install https://github.com/bndrwe/idea-generation/tree/main/idea-generation`. If you start Codex inside a clone of this repo, it finds the skill without any install, through `.agents/skills/idea-generation` (a link to the skill folder).
+
+Codex picks up new skills on its own; restart it if the skill doesn't show up. Ask for ideas as normal and it triggers, or call it by name with `$idea-generation` (type `$` or run `/skills` to pick it). `agents/openai.yaml` only sets the display name and a starter prompt for the Codex app.
+
+The vector check needs one extra step under Codex. Its default sandbox blocks network access and writes outside the project, so the script can't download the model to `~/.cache` on its first run. Install one of the embedding packages and run the script once yourself to cache the model:
+
+```bash
+printf 'a\nb\nc\nd\ne\n' > /tmp/o.txt && python3 ~/.agents/skills/idea-generation/scripts/novelty.py /tmp/o.txt /tmp/o.txt
+```
+
+After that it runs offline. If you skip this, Codex either asks to run the script outside the sandbox or falls back to the word-based check.
 
 ## Test results
 
