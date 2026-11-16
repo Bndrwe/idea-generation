@@ -17,6 +17,8 @@ Silently write the cliché wall, in two tiers:
 
 Show both under a collapsed heading "Obvious ideas (skipped)". Nothing below may be a light rewording of one of them.
 
+If you can run code, save the wall to `obvious.txt`, one idea per line as "Name: one-line pitch". Aim for 20 or more lines here (add the next most likely answers after the first 17): the vector check in step 3 maps the crowded region from this list, and a bigger list maps it better.
+
 ## 2. Draw the map
 Pick two axes that matter for this brief, each with 3 or 4 values. Good axes: who it's for, how it works (the mechanism), how it makes money, the setting, the format. Example: *users* (hobbyists / trades / elderly / kids) × *mechanism* (physical object / service / software / event).
 
@@ -33,13 +35,21 @@ Use at least four of these techniques. For each one, write about 5 ideas, and ne
 - **Annoyance mining:** a specific complaint people make in forums, reviews, or support tickets.
 - **Outsider:** how would a specific outsider attack this? Pick the outsider the same way as the collision field: list 10 jobs far from the brief, use the last few.
 
+**Vector check (if you can run code).** Save every idea so far to `candidates.txt` in the same format and run `python3 <this skill's folder>/scripts/novelty.py obvious.txt candidates.txt`. It embeds each line with a small local model (no API key) and measures how close each candidate sits to the cliché wall by meaning, so a reworded obvious idea still gets caught. Use its output:
+- **INSIDE:** the idea sits as close to an obvious idea as obvious ideas sit to each other. Drop it, or change how it works (keep the same paying customer) until it moves out. Say which obvious idea it was near.
+- **EDGE:** fine to keep. Once an idea is out of the crowded zone, extra distance earns nothing and workability matters more.
+- **Near-duplicates:** merge them.
+- **Most open directions:** write 2 or 3 more ideas in those directions, but only where you can name someone who already pays for something similar. Check them the same way.
+The check only measures distance from the obvious ideas. Whether an idea works is still up to the step 4 checks and the step 5 bar.
+If the script prints NO_EMBEDDINGS or fails for any reason, skip it and rely on your probability estimates. Don't install packages without asking the user.
+
 Then do one push pass: rewrite each idea once to make it bolder and less like the others. Make it bolder in *how it works*, not narrower in *who it's for*. If the push shrinks the customer group to a tiny niche or adds legal risk, keep the earlier version. Merge any two ideas that share the same user and the same mechanism. Look at the map and write 2 or 3 more ideas aimed at empty cells.
 
 ## 4. Checks
 Finish generating before checking anything. Then switch roles: you are now a skeptical investor who didn't come up with any of these and wants to say no. Rewrite the ideas as a plain numbered list (name and one-line pitch only, no technique labels, no probabilities) and judge that list. If you can run a subagent, hand it that list and have it do the checks and scoring instead.
 
 Put every idea through these checks in order. Drop it as soon as it fails one, and give the reason in a single line.
-1. **Typicality:** Would another AI plausibly give this answer to this brief? Is it on the cliché wall?
+1. **Typicality:** Would another AI plausibly give this answer to this brief? Is it on the cliché wall? If the vector check ran, rerun it on the list being judged and drop anything marked INSIDE.
 2. **Originality:** Is it a well-known existing product? If it's close to something that exists, name it. Keep the idea only if it has a clear twist that sets it apart.
 3. **Reality:** Can it be built or done with current tech, laws, and physics? Name the hardest part. Name any license, permit, or liability it needs; if one would sink a small operator, drop it.
 4. **Fit:** Can THIS user do it with their skills, budget, and time?
@@ -49,7 +59,7 @@ Put every idea through these checks in order. Drop it as soon as it fails one, a
 If a search tool is available, use it for the originality and demand checks rather than relying on memory. Judge originality against the cliché wall and search results, not gut feel.
 
 ## 5. Score and present
-Score each surviving idea from 1 to 5 on Novelty, Feasibility, and Demand. Only ideas with Feasibility 4+ and Demand 3+ can make the shortlist; novelty breaks ties. Before shortlisting, check each candidate against the cliché wall one last time: if it is a known standard option for this kind of person (something a plain assistant or a career guide would list), it is not a finalist. Pick the shortlist from different cells of the map: take the best qualifying idea in each cell, then the top 5 of those. No two finalists may share both a user and a mechanism. Fewer than 5 is fine. Show each as:
+Score each surviving idea from 1 to 5 on Novelty, Feasibility, and Demand. Only ideas with Feasibility 4+ and Demand 3+ can make the shortlist; novelty breaks ties. Before shortlisting, check each candidate against the cliché wall one last time (by the vector check's last run if you have one, and by eye): if it is a known standard option for this kind of person (something a plain assistant or a career guide would list), it is not a finalist. Pick the shortlist from different cells of the map: take the best qualifying idea in each cell, then the top 5 of those. No two finalists may share both a user and a mechanism. Fewer than 5 is fine. Show each as:
 - **Name:** one-line pitch
 - Technique used, its cell on the map, and the twist that makes it different from what exists
 - Hardest part, plus the red-team argument and the answer to it

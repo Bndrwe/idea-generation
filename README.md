@@ -1,6 +1,6 @@
 # idea-generation
 
-A Claude skill for brainstorming ideas that are unusual and still workable: side projects, small businesses, fundraisers, stories, startups. It works by first listing the ideas any chatbot would give, banning them, generating from structured prompts, and then running every idea past a skeptical judge before anything reaches you.
+A Claude skill for brainstorming ideas that are unusual and still workable: side projects, small businesses, fundraisers, stories, startups. It works by first listing the ideas any chatbot would give, banning them, generating from structured prompts, and then running every idea past a skeptical judge before anything reaches you. If it can run Python, it also checks every idea against the obvious ones with a small local embedding model, so the sameness check is actual math.
 
 ## Why AI ideas all sound the same
 
@@ -18,15 +18,40 @@ Ask three chatbots for side-project ideas and you get the same ten answers. Rese
 2. It writes a cliché wall. It starts with the exact list it would give with no skill, then adds the other ideas any AI would give, plus "clever-sounding defaults" like "AI-powered X" or "a marketplace for Y". Nothing later may be a reworded version of these. You can see the wall in a collapsed section.
 3. It draws a map of two axes that matter for the brief, such as who pays × how it works. The goal is ideas spread across cells, a version of quality-diversity search ([Bradley et al., ICLR 2024](https://arxiv.org/abs/2310.13032)). Only cells where real people spend money count.
 4. It generates ideas with forcing techniques: collision with an unrelated field, inversion, underserved users, extreme constraints, time shifts, scale shifts, annoyance mining and outsider views. Each idea gets a rough probability that a typical AI would suggest it, and common ones are cut ([verbalized sampling](https://arxiv.org/abs/2510.01171)). Then a pass rewrites each idea so it works in a bolder way while keeping the same customers ([Meincke et al.](https://arxiv.org/abs/2402.01727)).
-5. It switches to a skeptical judge. The ideas are rewritten as a bare list with no labels or reasoning and judged as if someone else wrote them. If subagents are available, a separate one does this. Checks: typicality, originality, reality (including licenses and liability), fit, demand with rough numbers against your goal, and a red-team case.
-6. It shortlists across the map. A finalist needs Feasibility 4+ and Demand 3+; novelty breaks ties. Each finalist gets one more check against the cliché wall. You also get one line naming the safest obvious option, so you can weigh the odd ideas against the proven one.
-7. It shows its work: the map, finalists with the hardest part, the red-team case and a first step that takes under a week, and a table of dropped ideas so you can rescue anything cut too harshly.
+5. It runs the vector check (next section) when it can run code: ideas that land in the crowded zone get dropped or reworked, and it writes a few more ideas toward open space.
+6. It switches to a skeptical judge. The ideas are rewritten as a bare list with no labels or reasoning and judged as if someone else wrote them. If subagents are available, a separate one does this. Checks: typicality, originality, reality (including licenses and liability), fit, demand with rough numbers against your goal, and a red-team case.
+7. It shortlists across the map. A finalist needs Feasibility 4+ and Demand 3+; novelty breaks ties. Each finalist gets one more check against the cliché wall. You also get one line naming the safest obvious option, so you can weigh the odd ideas against the proven one.
+8. It shows its work: the map, finalists with the hardest part, the red-team case and a first step that takes under a week, and a table of dropped ideas so you can rescue anything cut too harshly.
 
 The skill names no example fields or jobs on purpose (see the test results for why).
 
+## The vector check
+
+An embedding model turns a sentence into a list of numbers (a vector) that captures its meaning, so ideas that mean similar things end up near each other. Researchers measure the sameness of AI output this way, and AI ideas for a given brief bunch up in one small, crowded region.
+
+`idea-generation/scripts/novelty.py` uses that directly:
+
+1. The skill writes 20 or more obvious ideas for the brief to `obvious.txt`. Embedded, these map the crowded region.
+2. The script measures how close the obvious ideas sit to their nearest neighbours. The median of that is the radius of the crowded zone, so the threshold adapts to each brief.
+3. Each candidate idea gets embedded and compared with its nearest obvious idea. INSIDE means it sits as close to an obvious idea as obvious ideas sit to each other, and the skill drops or reworks it. EDGE is close but outside. OUT is clear.
+4. It also flags near-duplicate candidates and lists the candidates farthest from both the wall and each other. The skill writes a few more ideas in those directions, as long as someone already pays for something similar there.
+
+Distance only measures how unusual an idea is, so the feasibility and demand checks still decide what makes the shortlist.
+
+The model is all-MiniLM-L6-v2, about 80 MB, and it runs on your CPU. There is no API key, and your ideas never leave your machine. On the ideas from the earlier tests, the INSIDE verdict lined up well with a blind judge's "this is an obvious idea" flags (AUC 0.79 to 0.98 across the three briefs).
+
+Setup is optional. Either of these works:
+
+```bash
+pip install sentence-transformers          # uses PyTorch
+pip install onnxruntime tokenizers numpy   # lighter; the script downloads the ONNX model once to ~/.cache/idea-generation
+```
+
+If neither is installed, or the environment can't run code (Claude.ai chats without code execution, for example), the script exits with `NO_EMBEDDINGS` and the skill falls back to its word-based check: it estimates how likely a typical AI is to suggest each idea and drops the common ones.
+
 ## Install
 
-**Claude.ai / Claude desktop:** download `idea-generation/SKILL.md`, zip the `idea-generation` folder, and upload it in the Skills section of Claude's settings.
+**Claude.ai / Claude desktop:** zip the `idea-generation` folder (with `SKILL.md` and `scripts/`) and upload it in the Skills section of Claude's settings.
 
 **Claude Code:** copy the folder into your skills directory:
 
@@ -35,7 +60,7 @@ git clone https://github.com/bndrwe/idea-generation
 cp -r idea-generation/idea-generation ~/.claude/skills/
 ```
 
-Then ask for ideas as normal ("give me side project ideas, I have 5 hours a week"). The skill triggers on brainstorming requests.
+Optionally install one of the embedding packages above. Then ask for ideas as normal ("give me side project ideas, I have 5 hours a week"). The skill triggers on brainstorming requests.
 
 ## Test results
 
@@ -54,6 +79,21 @@ What the tests changed:
 - Workability dropped. Unusual ideas are harder to pull off. The strict feasibility and demand bar and the demand math brought it back up to 3.3, and the "safest obvious option" line keeps the proven choice on the table.
 
 Caveats: two runs per brief and one judge, so read the numbers as a direction. The stricter bar also makes runs agree more often (6 repeats). The skill still has a few favorite ideas of its own, like a corporate robot-building night for the robotics club.
+
+### Vector check test
+
+Same three briefs, three runs each, with the model allowed to run code. I compared the previous version (no vector check), a first version of the vector check, and the shipped version, which keeps EDGE ideas and only steers toward open space where people already pay. One blind judge rated all 111 final ideas together.
+
+| | Previous version | Vector check, first try | Vector check, shipped |
+|---|---|---|---|
+| Final ideas | 39 | 35 | 37 |
+| Same idea in two or more runs | 6 | 3 | 3 |
+| Match the obvious list | 2 | 0 | 2 |
+| Novelty (1-5) | 3.69 | 3.97 | 3.81 |
+| Workability (1-5) | 3.23 | 3.23 | 3.32 |
+| Rated 4+ on both | 4 | 6 | 7 |
+
+The first try was the most novel, but when the same version was judged against the previous one alone, its workability came out 0.3 lower. The shipped version gives up a little novelty and comes out ahead of the previous version on every row except obvious matches, where it ties. The model ran the script in 17 of 18 runs. Nine runs per version and one judge is still a small sample.
 
 ## Example output
 
