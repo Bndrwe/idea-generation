@@ -1,6 +1,6 @@
 # idea-generation
 
-A Claude and OpenAI Codex skill for brainstorming ideas that are unusual and still workable: side projects, small businesses, fundraisers, stories, startups. It works by first listing the ideas any chatbot would give, banning them, generating from structured prompts, and then running every idea past a skeptical judge before anything reaches you. If it can run Python, it also checks every idea against the obvious ones with a small local embedding model, so the sameness check is actual math.
+A Claude and OpenAI Codex skill for brainstorming ideas that are unusual and still workable. The ideas can be anything: research questions, essay topics, stories, side projects, small businesses, fundraisers. It works by first listing the ideas any chatbot would give, banning them, generating from structured prompts, and then running every idea past a skeptical judge before anything reaches you. If it can run Python, it also checks every idea against the obvious ones with a small local embedding model, so the sameness check is actual math.
 
 ## Why AI ideas all sound the same
 
@@ -14,16 +14,29 @@ Ask three chatbots for side-project ideas and you get the same ten answers. Rese
 
 ## What the skill does about it
 
-1. It pins down the brief: who it's for, skills, budget, time, limits. If you say "just go", it assumes and lists its assumptions.
+1. It pins down the brief: who it's for, skills, budget, time, limits. If you say "just go", it assumes and lists its assumptions. It also names the kind of idea, which sets what "workable" means (the payoff test in the next section).
 2. It writes a cliché wall. It starts with the exact list it would give with no skill, then adds the other ideas any AI would give, plus "clever-sounding defaults" like "AI-powered X" or "a marketplace for Y". Nothing later may be a reworded version of these. You can see the wall in a collapsed section.
-3. It draws a map of two axes that matter for the brief, such as who pays × how it works. The goal is ideas spread across cells, a version of quality-diversity search ([Bradley et al., ICLR 2024](https://arxiv.org/abs/2310.13032)). Only cells where real people spend money count.
-4. It generates ideas with forcing techniques: collision with an unrelated field, inversion, underserved users, extreme constraints, time shifts, scale shifts, annoyance mining and outsider views. Each idea gets a rough probability that a typical AI would suggest it, and common ones are cut ([verbalized sampling](https://arxiv.org/abs/2510.01171)). Then a pass rewrites each idea so it works in a bolder way while keeping the same customers ([Meincke et al.](https://arxiv.org/abs/2402.01727)).
+3. It draws a map of two axes that matter for the brief, such as who it's for × how it works. The goal is ideas spread across cells, a version of quality-diversity search ([Bradley et al., ICLR 2024](https://arxiv.org/abs/2310.13032)). Only cells where the payoff test can pass count.
+4. It generates ideas with forcing techniques: collision with an unrelated field, inversion, underserved users, extreme constraints, time shifts, scale shifts, annoyance mining and outsider views. Each idea gets a rough probability that a typical AI would suggest it, and common ones are cut ([verbalized sampling](https://arxiv.org/abs/2510.01171)). Then a pass rewrites each idea so it works in a bolder way while keeping the same audience ([Meincke et al.](https://arxiv.org/abs/2402.01727)).
 5. It runs the vector check (next section) when it can run code: ideas that land in the crowded zone get dropped or reworked, and it writes a few more ideas toward open space.
-6. It switches to a skeptical judge. The ideas are rewritten as a bare list with no labels or reasoning and judged as if someone else wrote them. If subagents are available, a separate one does this. Checks: typicality, originality, reality (including licenses and liability), fit, demand with rough numbers against your goal, and a red-team case.
-7. It shortlists across the map. A finalist needs Feasibility 4+ and Demand 3+; novelty breaks ties. Each finalist gets one more check against the cliché wall. You also get one line naming the safest obvious option, so you can weigh the odd ideas against the proven one.
+6. It switches to a skeptical judge. The ideas are rewritten as a bare list with no labels or reasoning and judged as if someone else wrote them. If subagents are available, a separate one does this. Checks: typicality, originality, reality (including licenses, liability and ethics approval), fit, payoff, and a red-team case.
+7. It shortlists across the map. A finalist needs Feasibility 4+ and Payoff 3+; novelty breaks ties. Each finalist gets one more check against the cliché wall. You also get one line naming the safest obvious option, so you can weigh the odd ideas against the proven one.
 8. It shows its work: the map, finalists with the hardest part, the red-team case and a first step that takes under a week, and a table of dropped ideas so you can rescue anything cut too harshly.
 
 The skill names no example fields or jobs on purpose (see the test results for why).
+
+## Kinds of ideas
+
+The steps stay the same for every brief. What changes is the payoff test, which decides whether an idea is workable, and the skeptic who applies it:
+
+| Kind of idea | Workable means | The skeptic |
+|---|---|---|
+| Business, product, side project, fundraiser | Someone pays or signs up, and the rough math reaches your goal | An investor |
+| Research question | Nobody has answered it yet, you can test it with data and methods you can get, and every possible result tells the field something | A reviewer |
+| Essay, thesis or talk topic | The claim is arguable, there is enough evidence for the length, and it says something the standard take doesn't | An editor or grader |
+| Story, game, art | The premise can carry the form and length, and a specific audience would pick it over what they already have | A jaded reader |
+
+For anything else, the skill asks what success looks like, or states its own guess. A finalist from a research brief comes with the data or experiment that would answer it and what each result would mean; a finalist from an essay brief comes with a one-sentence thesis, the strongest counterargument and the kinds of sources that back it.
 
 ## The vector check
 
@@ -115,7 +128,15 @@ Same three briefs, three runs each, with the model allowed to run code. I compar
 
 The first try was the most novel, but when the same version was judged against the previous one alone, its workability came out 0.3 lower. The shipped version gives up a little novelty and comes out ahead of the previous version on every row except obvious matches, where it ties. The model ran the script in 17 of 18 runs. Nine runs per version and one judge is still a small sample.
 
+### Research brief test
+
+To check the skill outside business ideas, I ran it twice on a research brief, with code and web search allowed, and once with no skill: *"I'm a first-year PhD student in public health. I can use public datasets and have about $1,000 for collecting my own data. Give me research question ideas for my first paper. Just go, don't ask questions."*
+
+With no skill, the five picks were Medicaid unwinding, heat and mental health, paid sick leave, a message framing experiment, and loneliness. Three of them (Medicaid unwinding, heat, loneliness) are on the skill's own obvious list. The two skill runs gave ten finalists between them, none on the obvious list, and only one (the over-the-counter hearing aid rule) came up in both. Each finalist named its data, its hardest part and what each possible result would mean. Both runs ran the vector check and searched the literature. With two runs and no judge, treat this as a spot check.
+
 ## Example output
+
+### A fundraiser
 
 Brief: *"Our high school robotics club needs to raise about $3,000 for competition fees. Give us fundraiser ideas. Just go, don't ask questions."*
 
@@ -141,6 +162,29 @@ With the skill (trimmed):
 > **4. Animated Shop Windows.** Rent simple moving holiday window displays to downtown shops for $250 a season, with a "Built by [School] Robotics" sign.
 >
 > **Dropped:** wedding cake toppers (Etsy undercuts it), fix-it clinic (Repair Café exists), broken-toy hospital ($10 tickets can't reach $3,000), middle school scrimmage (a standard move for FIRST teams), senior tech help (on every AI list), laser engraving (needs a laser over budget).
+
+### A research question
+
+Same research brief as the test above. Three of the five no-skill picks were on the obvious list below (Medicaid unwinding, heat and mental health, loneliness). With the skill (trimmed):
+
+> **Obvious ideas (skipped):** social media and teen depression, food insecurity and diabetes, Medicaid expansion difference-in-differences, PM2.5 and asthma ED visits, loneliness and mortality, heat waves and mortality, green space and depression, firearm laws, cannabis legalization and youth use, Medicaid unwinding, pharmacy deserts, and 13 more. *Clever-sounding defaults:* machine-learning risk prediction, Google Trends surveillance, wearables, climate anxiety, long COVID and employment.
+>
+> **Safest obvious option:** food insecurity and cardiometabolic markers in NHANES. It's fast and publishable, but crowded.
+>
+> **1. Snow days as a test of detection.** Do unplanned weather-related school closures reduce child maltreatment reports, and do reports rebound afterward?
+> - Twist: earlier work studied *scheduled* closures, and the COVID studies are confounded. Their open question is whether fewer reports means abuse goes unseen or abuse actually drops. A short, random, weather-driven closure plus a test for a rebound can separate the two. The search found no published snow-day study.
+> - Hardest part: no national dataset records closures, so heavy weekday snowfall from NOAA stands in for them. NCANDS gives county codes only for larger counties.
+> - Red team: "Snow also changes parents' stress, so it isn't a clean experiment." Answer: split reports by who made them. If detection is lost, reports from school staff fall and then rebound. If abuse actually drops, reports from every source fall and don't rebound.
+> - Payoff: a rebound means school staff are the detection system, which argues for maltreatment screening during long closures. No rebound weakens the "hidden abuse" argument against closures.
+> - Scores: Novelty 5, Feasibility 4, Payoff 4. First step: start the free NCANDS data application and pull snowfall for the target counties.
+>
+> **2. OTC hearing aids and the income gap.** Did the 2022 FDA over-the-counter hearing aid rule narrow the income gap in hearing aid use among older adults (NHATS)?
+>
+> **3. Locked-case health products.** In one metro area, are naloxone, condoms, emergency contraception and pregnancy tests locked up more often in stores in Black and Hispanic neighborhoods? About 100 store visits fit the $1,000.
+>
+> **4. Where lead pipe status is unknown.** In the EPA-required service line inventories, are "unknown material" lines concentrated in low-income and Black areas after adjusting for housing age?
+>
+> **Dropped:** elected coroners and heat deaths (the vector check flagged it as too close to "heat and mortality"; the run said it was worth reviving), hospital medical-debt lawsuits (already studied), grey-market insulin listings (no historical data), snow-plow routes and dialysis access (no health outcome).
 
 ## License
 
