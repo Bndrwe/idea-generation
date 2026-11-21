@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="370" viewBox="0 0 900 370" role="img" aria-label="Bar charts comparing no skill, v1, v2 and this version on obvious picks, repeats and workability">
+<title>Bar charts comparing no skill, v1, v2 and this version on obvious picks, repeats and workability</title>
+<style>
+  svg { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .bg { fill: #fcfcfb; }
+  .t1 { fill: #0b0b0b; }
+  .t2 { fill: #52514e; }
+  .t3 { fill: #7a7974; }
+  .grid { stroke: #e4e3df; }
+  .axis { stroke: #b9b8b2; }
+  .muted { fill: #c3c2bd; }
+  .hl { fill: #2a78d6; }
+  .gen { fill: #eaf2fc; stroke: #2a78d6; }
+  .cut { fill: #fdf0ea; stroke: #eb6834; }
+  .badge-gen { fill: #2a78d6; }
+  .badge-cut { fill: #eb6834; }
+  .badge-tx { fill: #ffffff; }
+  .arrow { stroke: #7a7974; fill: none; }
+  .arrowhead { fill: #7a7974; }
+  .loop { stroke: #2a78d6; fill: none; }
+  .loophead { fill: #2a78d6; }
+  .wall { fill: #a8a7a1; }
+  .zone { fill: #a8a7a1; fill-opacity: 0.12; stroke: #7a7974; }
+  .inside { fill: #e34948; }
+  .edge { fill: #eda100; }
+  .out { fill: #1baf7a; }
+  .ring { stroke: #fcfcfb; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1a19; }
+    .t1 { fill: #f0efec; }
+    .t2 { fill: #c3c2b7; }
+    .t3 { fill: #9a998f; }
+    .grid { stroke: #33332f; }
+    .axis { stroke: #55544e; }
+    .muted { fill: #55544e; }
+    .hl { fill: #3987e5; }
+    .gen { fill: #1b2a3d; stroke: #3987e5; }
+    .cut { fill: #3a241b; stroke: #d95926; }
+    .badge-gen { fill: #3987e5; }
+    .badge-cut { fill: #d95926; }
+    .arrow { stroke: #9a998f; }
+    .arrowhead { fill: #9a998f; }
+    .loop { stroke: #3987e5; }
+    .loophead { fill: #3987e5; }
+    .wall { fill: #77766f; }
+    .zone { fill: #77766f; fill-opacity: 0.18; stroke: #9a998f; }
+    .inside { fill: #e66767; }
+    .edge { fill: #c98500; }
+    .out { fill: #199e70; }
+    .ring { stroke: #1a1a19; }
+  }
+</style>
+<rect class="bg" x="0" y="0" width="900" height="370" rx="12"/>
+<text x="30" y="40" class="t1" font-size="16" font-weight="600" text-anchor="start">Skill versions on three everyday briefs</text>
+<text x="30" y="62" class="t3" font-size="12.5" font-weight="400" text-anchor="start">Two runs per brief per version, judged blind. Each panel has its own scale.</text>
+<text x="30.0" y="90" class="t1" font-size="13.5" font-weight="600" text-anchor="start">Picks on the obvious list</text>
+<text x="30.0" y="108" class="t3" font-size="11.5" font-weight="400" text-anchor="start">lower is better</text>
+<line class="axis" x1="30.0" y1="310" x2="290.0" y2="310" stroke-width="1"/>
+<path class="muted" d="M43.0,310 V168.3 Q43.0,164.3 47.0,164.3 H78.0 Q82.0,164.3 82.0,168.3 V310 Z"/>
+<text x="62.5" y="157.33333333333331" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">77%</text>
+<text x="62.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">No</text>
+<text x="62.5" y="343" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">skill</text>
+<path class="muted" d="M108.0,310 V257.0 Q108.0,253.0 112.0,253.0 H143.0 Q147.0,253.0 147.0,257.0 V310 Z"/>
+<text x="127.5" y="246.0" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">30%</text>
+<text x="127.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">v1</text>
+<path class="muted" d="M173.0,310 V301.3 Q173.0,297.3 177.0,297.3 H208.0 Q212.0,297.3 212.0,301.3 V310 Z"/>
+<text x="192.5" y="290.3333333333333" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">7%</text>
+<text x="192.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">v2</text>
+<path class="hl" d="M238.0,310 V293.6 Q238.0,289.6 242.0,289.6 H273.0 Q277.0,289.6 277.0,293.6 V310 Z"/>
+<text x="257.5" y="282.64285714285717" class="t1" font-size="12.5" font-weight="700" text-anchor="middle">11%</text>
+<text x="257.5" y="328" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">This</text>
+<text x="257.5" y="343" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">version</text>
+<text x="320.0" y="90" class="t1" font-size="13.5" font-weight="600" text-anchor="start">Same idea in both runs</text>
+<text x="320.0" y="108" class="t3" font-size="11.5" font-weight="400" text-anchor="start">lower is better</text>
+<line class="axis" x1="320.0" y1="310" x2="580.0" y2="310" stroke-width="1"/>
+<path class="muted" d="M333.0,310 V143.0 Q333.0,139.0 337.0,139.0 H368.0 Q372.0,139.0 372.0,143.0 V310 Z"/>
+<text x="352.5" y="132.0" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">9</text>
+<text x="352.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">No</text>
+<text x="352.5" y="343" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">skill</text>
+<path class="muted" d="M398.0,310 V200.0 Q398.0,196.0 402.0,196.0 H433.0 Q437.0,196.0 437.0,200.0 V310 Z"/>
+<text x="417.5" y="189.0" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">6</text>
+<text x="417.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">v1</text>
+<path class="muted" d="M463.0,310 V276.0 Q463.0,272.0 467.0,272.0 H498.0 Q502.0,272.0 502.0,276.0 V310 Z"/>
+<text x="482.5" y="265.0" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">2</text>
+<text x="482.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">v2</text>
+<path class="hl" d="M528.0,310 V200.0 Q528.0,196.0 532.0,196.0 H563.0 Q567.0,196.0 567.0,200.0 V310 Z"/>
+<text x="547.5" y="189.0" class="t1" font-size="12.5" font-weight="700" text-anchor="middle">6</text>
+<text x="547.5" y="328" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">This</text>
+<text x="547.5" y="343" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">version</text>
+<text x="610.0" y="90" class="t1" font-size="13.5" font-weight="600" text-anchor="start">Workability</text>
+<text x="610.0" y="108" class="t3" font-size="11.5" font-weight="400" text-anchor="start">1 to 5, higher is better</text>
+<line class="axis" x1="610.0" y1="310" x2="870.0" y2="310" stroke-width="1"/>
+<path class="muted" d="M623.0,310 V173.4 Q623.0,169.4 627.0,169.4 H658.0 Q662.0,169.4 662.0,173.4 V310 Z"/>
+<text x="642.5" y="162.4" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3.7</text>
+<text x="642.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">No</text>
+<text x="642.5" y="343" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">skill</text>
+<path class="muted" d="M688.0,310 V196.2 Q688.0,192.2 692.0,192.2 H723.0 Q727.0,192.2 727.0,196.2 V310 Z"/>
+<text x="707.5" y="185.2" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3.1</text>
+<text x="707.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">v1</text>
+<path class="muted" d="M753.0,310 V196.2 Q753.0,192.2 757.0,192.2 H788.0 Q792.0,192.2 792.0,196.2 V310 Z"/>
+<text x="772.5" y="185.2" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3.1</text>
+<text x="772.5" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">v2</text>
+<path class="hl" d="M818.0,310 V188.6 Q818.0,184.6 822.0,184.6 H853.0 Q857.0,184.6 857.0,188.6 V310 Z"/>
+<text x="837.5" y="177.6" class="t1" font-size="12.5" font-weight="700" text-anchor="middle">3.3</text>
+<text x="837.5" y="328" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">This</text>
+<text x="837.5" y="343" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">version</text>
+</svg>

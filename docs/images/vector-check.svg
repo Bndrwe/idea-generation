@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400" role="img" aria-label="Diagram of the vector check: obvious ideas form a crowded zone; candidates are marked INSIDE, EDGE or OUT">
+<title>Diagram of the vector check: obvious ideas form a crowded zone; candidates are marked INSIDE, EDGE or OUT</title>
+<style>
+  svg { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .bg { fill: #fcfcfb; }
+  .t1 { fill: #0b0b0b; }
+  .t2 { fill: #52514e; }
+  .t3 { fill: #7a7974; }
+  .grid { stroke: #e4e3df; }
+  .axis { stroke: #b9b8b2; }
+  .muted { fill: #c3c2bd; }
+  .hl { fill: #2a78d6; }
+  .gen { fill: #eaf2fc; stroke: #2a78d6; }
+  .cut { fill: #fdf0ea; stroke: #eb6834; }
+  .badge-gen { fill: #2a78d6; }
+  .badge-cut { fill: #eb6834; }
+  .badge-tx { fill: #ffffff; }
+  .arrow { stroke: #7a7974; fill: none; }
+  .arrowhead { fill: #7a7974; }
+  .loop { stroke: #2a78d6; fill: none; }
+  .loophead { fill: #2a78d6; }
+  .wall { fill: #a8a7a1; }
+  .zone { fill: #a8a7a1; fill-opacity: 0.12; stroke: #7a7974; }
+  .inside { fill: #e34948; }
+  .edge { fill: #eda100; }
+  .out { fill: #1baf7a; }
+  .ring { stroke: #fcfcfb; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1a19; }
+    .t1 { fill: #f0efec; }
+    .t2 { fill: #c3c2b7; }
+    .t3 { fill: #9a998f; }
+    .grid { stroke: #33332f; }
+    .axis { stroke: #55544e; }
+    .muted { fill: #55544e; }
+    .hl { fill: #3987e5; }
+    .gen { fill: #1b2a3d; stroke: #3987e5; }
+    .cut { fill: #3a241b; stroke: #d95926; }
+    .badge-gen { fill: #3987e5; }
+    .badge-cut { fill: #d95926; }
+    .arrow { stroke: #9a998f; }
+    .arrowhead { fill: #9a998f; }
+    .loop { stroke: #3987e5; }
+    .loophead { fill: #3987e5; }
+    .wall { fill: #77766f; }
+    .zone { fill: #77766f; fill-opacity: 0.18; stroke: #9a998f; }
+    .inside { fill: #e66767; }
+    .edge { fill: #c98500; }
+    .out { fill: #199e70; }
+    .ring { stroke: #1a1a19; }
+  }
+</style>
+<rect class="bg" x="0" y="0" width="900" height="400" rx="12"/>
+<text x="30" y="40" class="t1" font-size="16" font-weight="600" text-anchor="start">The vector check, drawn in two dimensions</text>
+<text x="30" y="62" class="t3" font-size="12.5" font-weight="400" text-anchor="start">Illustration. The real check compares 384-number embeddings with cosine similarity.</text>
+<circle class="zone" cx="250" cy="215" r="118" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle class="wall ring" cx="170" cy="150" r="5" stroke-width="2"/>
+<text x="179" y="154" class="t3" font-size="11" font-weight="400" text-anchor="start">bake sale</text>
+<circle class="wall ring" cx="280" cy="140" r="5" stroke-width="2"/>
+<text x="289" y="144" class="t3" font-size="11" font-weight="400" text-anchor="start">car wash</text>
+<circle class="wall ring" cx="160" cy="210" r="5" stroke-width="2"/>
+<text x="169" y="214" class="t3" font-size="11" font-weight="400" text-anchor="start">raffle</text>
+<circle class="wall ring" cx="290" cy="230" r="5" stroke-width="2"/>
+<text x="299" y="234" class="t3" font-size="11" font-weight="400" text-anchor="start">t-shirts</text>
+<circle class="wall ring" cx="180" cy="270" r="5" stroke-width="2"/>
+<text x="189" y="274" class="t3" font-size="11" font-weight="400" text-anchor="start">GoFundMe</text>
+<circle class="wall ring" cx="270" cy="290" r="5" stroke-width="2"/>
+<text x="279" y="294" class="t3" font-size="11" font-weight="400" text-anchor="start">trivia night</text>
+<circle class="wall ring" cx="225" cy="175" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="235" cy="228" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="205" cy="240" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="320" cy="175" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="255" cy="262" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="140" cy="180" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="330" cy="262" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="200" cy="300" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="240" cy="148" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="195" cy="120" r="5" stroke-width="2"/>
+<circle class="wall ring" cx="300" cy="310" r="5" stroke-width="2"/>
+<text x="250" y="360" class="t2" font-size="12.5" font-weight="600" text-anchor="middle">Obvious ideas (the cliché wall)</text>
+<circle class="inside ring" cx="245" cy="200" r="8" stroke-width="2"/>
+<text x="258" y="204" class="t1" font-size="11.5" font-weight="700" text-anchor="start">INSIDE</text>
+<circle class="edge ring" cx="380" cy="245" r="8" stroke-width="2"/>
+<text x="393" y="249" class="t1" font-size="11.5" font-weight="700" text-anchor="start">EDGE</text>
+<circle class="out ring" cx="470" cy="150" r="8" stroke-width="2"/>
+<text x="483" y="154" class="t1" font-size="11.5" font-weight="700" text-anchor="start">OUT</text>
+<circle class="out ring" cx="515" cy="290" r="8" stroke-width="2"/>
+<text x="528" y="294" class="t1" font-size="11.5" font-weight="700" text-anchor="start">OUT</text>
+<line class="loop" x1="500" y1="245" x2="540.3" y2="200.2" stroke-width="2"/>
+<polygon class="loophead" points="545.0,195.0 544.0,203.5 536.6,196.9"/>
+<text x="425" y="340" class="t2" font-size="11.5" font-weight="400" text-anchor="start">Farthest from the wall and each</text>
+<text x="425" y="355" class="t2" font-size="11.5" font-weight="400" text-anchor="start">other: write a few more here.</text>
+<circle class="inside" cx="628" cy="106" r="7"/>
+<text x="644" y="110" class="t1" font-size="13" font-weight="700" text-anchor="start">INSIDE</text>
+<text x="644" y="129" class="t2" font-size="12.5" font-weight="400" text-anchor="start">As close to an obvious idea as</text>
+<text x="644" y="146" class="t2" font-size="12.5" font-weight="400" text-anchor="start">obvious ideas sit to each other.</text>
+<text x="644" y="163" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Dropped or reworked.</text>
+<circle class="edge" cx="628" cy="191" r="7"/>
+<text x="644" y="195" class="t1" font-size="13" font-weight="700" text-anchor="start">EDGE</text>
+<text x="644" y="214" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Close to the zone but outside.</text>
+<text x="644" y="231" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Kept.</text>
+<circle class="out" cx="628" cy="259" r="7"/>
+<text x="644" y="263" class="t1" font-size="13" font-weight="700" text-anchor="start">OUT</text>
+<text x="644" y="282" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Clear of the crowd.</text>
+<text x="620" y="318" class="t3" font-size="12" font-weight="400" text-anchor="start">Zone radius = the median distance from</text>
+<text x="620" y="335" class="t3" font-size="12" font-weight="400" text-anchor="start">each obvious idea to its nearest neighbour,</text>
+<text x="620" y="352" class="t3" font-size="12" font-weight="400" text-anchor="start">so it adapts to every brief.</text>
+</svg>

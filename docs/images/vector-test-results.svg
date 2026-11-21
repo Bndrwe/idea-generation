@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="370" viewBox="0 0 900 370" role="img" aria-label="Bar charts comparing the skill before the vector check, a first try, and the shipped version">
+<title>Bar charts comparing the skill before the vector check, a first try, and the shipped version</title>
+<style>
+  svg { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .bg { fill: #fcfcfb; }
+  .t1 { fill: #0b0b0b; }
+  .t2 { fill: #52514e; }
+  .t3 { fill: #7a7974; }
+  .grid { stroke: #e4e3df; }
+  .axis { stroke: #b9b8b2; }
+  .muted { fill: #c3c2bd; }
+  .hl { fill: #2a78d6; }
+  .gen { fill: #eaf2fc; stroke: #2a78d6; }
+  .cut { fill: #fdf0ea; stroke: #eb6834; }
+  .badge-gen { fill: #2a78d6; }
+  .badge-cut { fill: #eb6834; }
+  .badge-tx { fill: #ffffff; }
+  .arrow { stroke: #7a7974; fill: none; }
+  .arrowhead { fill: #7a7974; }
+  .loop { stroke: #2a78d6; fill: none; }
+  .loophead { fill: #2a78d6; }
+  .wall { fill: #a8a7a1; }
+  .zone { fill: #a8a7a1; fill-opacity: 0.12; stroke: #7a7974; }
+  .inside { fill: #e34948; }
+  .edge { fill: #eda100; }
+  .out { fill: #1baf7a; }
+  .ring { stroke: #fcfcfb; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1a19; }
+    .t1 { fill: #f0efec; }
+    .t2 { fill: #c3c2b7; }
+    .t3 { fill: #9a998f; }
+    .grid { stroke: #33332f; }
+    .axis { stroke: #55544e; }
+    .muted { fill: #55544e; }
+    .hl { fill: #3987e5; }
+    .gen { fill: #1b2a3d; stroke: #3987e5; }
+    .cut { fill: #3a241b; stroke: #d95926; }
+    .badge-gen { fill: #3987e5; }
+    .badge-cut { fill: #d95926; }
+    .arrow { stroke: #9a998f; }
+    .arrowhead { fill: #9a998f; }
+    .loop { stroke: #3987e5; }
+    .loophead { fill: #3987e5; }
+    .wall { fill: #77766f; }
+    .zone { fill: #77766f; fill-opacity: 0.18; stroke: #9a998f; }
+    .inside { fill: #e66767; }
+    .edge { fill: #c98500; }
+    .out { fill: #199e70; }
+    .ring { stroke: #1a1a19; }
+  }
+</style>
+<rect class="bg" x="0" y="0" width="900" height="370" rx="12"/>
+<text x="30" y="40" class="t1" font-size="16" font-weight="600" text-anchor="start">Adding the vector check</text>
+<text x="30" y="62" class="t3" font-size="12.5" font-weight="400" text-anchor="start">Three briefs, three runs each, 111 final ideas rated together by one blind judge.</text>
+<text x="30.0" y="90" class="t1" font-size="13.5" font-weight="600" text-anchor="start">Same idea in 2+ runs</text>
+<text x="30.0" y="108" class="t3" font-size="11.5" font-weight="400" text-anchor="start">lower is better</text>
+<line class="axis" x1="30.0" y1="310" x2="217.5" y2="310" stroke-width="1"/>
+<path class="muted" d="M42.5,310 V171.5 Q42.5,167.5 46.5,167.5 H76.0 Q80.0,167.5 80.0,171.5 V310 Z"/>
+<text x="61.25" y="160.5" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">6</text>
+<text x="61.25" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">Before</text>
+<path class="muted" d="M105.0,310 V242.8 Q105.0,238.8 109.0,238.8 H138.5 Q142.5,238.8 142.5,242.8 V310 Z"/>
+<text x="123.75" y="231.75" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3</text>
+<text x="123.75" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">First</text>
+<text x="123.75" y="343" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">try</text>
+<path class="hl" d="M167.5,310 V242.8 Q167.5,238.8 171.5,238.8 H201.0 Q205.0,238.8 205.0,242.8 V310 Z"/>
+<text x="186.25" y="231.75" class="t1" font-size="12.5" font-weight="700" text-anchor="middle">3</text>
+<text x="186.25" y="328" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">Shipped</text>
+<text x="247.5" y="90" class="t1" font-size="13.5" font-weight="600" text-anchor="start">Novelty</text>
+<text x="247.5" y="108" class="t3" font-size="11.5" font-weight="400" text-anchor="start">1 to 5</text>
+<line class="axis" x1="247.5" y1="310" x2="435.0" y2="310" stroke-width="1"/>
+<path class="muted" d="M260.0,310 V173.8 Q260.0,169.8 264.0,169.8 H293.5 Q297.5,169.8 297.5,173.8 V310 Z"/>
+<text x="278.75" y="162.78" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3.69</text>
+<text x="278.75" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">Before</text>
+<path class="muted" d="M322.5,310 V163.1 Q322.5,159.1 326.5,159.1 H356.0 Q360.0,159.1 360.0,163.1 V310 Z"/>
+<text x="341.25" y="152.14" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3.97</text>
+<text x="341.25" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">First</text>
+<text x="341.25" y="343" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">try</text>
+<path class="hl" d="M385.0,310 V169.2 Q385.0,165.2 389.0,165.2 H418.5 Q422.5,165.2 422.5,169.2 V310 Z"/>
+<text x="403.75" y="158.22" class="t1" font-size="12.5" font-weight="700" text-anchor="middle">3.81</text>
+<text x="403.75" y="328" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">Shipped</text>
+<text x="465.0" y="90" class="t1" font-size="13.5" font-weight="600" text-anchor="start">Workability</text>
+<text x="465.0" y="108" class="t3" font-size="11.5" font-weight="400" text-anchor="start">1 to 5</text>
+<line class="axis" x1="465.0" y1="310" x2="652.5" y2="310" stroke-width="1"/>
+<path class="muted" d="M477.5,310 V191.3 Q477.5,187.3 481.5,187.3 H511.0 Q515.0,187.3 515.0,191.3 V310 Z"/>
+<text x="496.25" y="180.26" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3.23</text>
+<text x="496.25" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">Before</text>
+<path class="muted" d="M540.0,310 V191.3 Q540.0,187.3 544.0,187.3 H573.5 Q577.5,187.3 577.5,191.3 V310 Z"/>
+<text x="558.75" y="180.26" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">3.23</text>
+<text x="558.75" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">First</text>
+<text x="558.75" y="343" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">try</text>
+<path class="hl" d="M602.5,310 V187.8 Q602.5,183.8 606.5,183.8 H636.0 Q640.0,183.8 640.0,187.8 V310 Z"/>
+<text x="621.25" y="176.84" class="t1" font-size="12.5" font-weight="700" text-anchor="middle">3.32</text>
+<text x="621.25" y="328" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">Shipped</text>
+<text x="682.5" y="90" class="t1" font-size="13.5" font-weight="600" text-anchor="start">Rated 4+ on both</text>
+<text x="682.5" y="108" class="t3" font-size="11.5" font-weight="400" text-anchor="start">count of final ideas</text>
+<line class="axis" x1="682.5" y1="310" x2="870.0" y2="310" stroke-width="1"/>
+<path class="muted" d="M695.0,310 V219.0 Q695.0,215.0 699.0,215.0 H728.5 Q732.5,215.0 732.5,219.0 V310 Z"/>
+<text x="713.75" y="208.0" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">4</text>
+<text x="713.75" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">Before</text>
+<path class="muted" d="M757.5,310 V171.5 Q757.5,167.5 761.5,167.5 H791.0 Q795.0,167.5 795.0,171.5 V310 Z"/>
+<text x="776.25" y="160.5" class="t1" font-size="12.5" font-weight="500" text-anchor="middle">6</text>
+<text x="776.25" y="328" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">First</text>
+<text x="776.25" y="343" class="t2" font-size="11.5" font-weight="400" text-anchor="middle">try</text>
+<path class="hl" d="M820.0,310 V147.8 Q820.0,143.8 824.0,143.8 H853.5 Q857.5,143.8 857.5,147.8 V310 Z"/>
+<text x="838.75" y="136.75" class="t1" font-size="12.5" font-weight="700" text-anchor="middle">7</text>
+<text x="838.75" y="328" class="t1" font-size="11.5" font-weight="600" text-anchor="middle">Shipped</text>
+</svg>

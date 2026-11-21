@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400" role="img" aria-label="How the idea-generation skill works: eight steps in two phases">
+<title>How the idea-generation skill works: eight steps in two phases</title>
+<style>
+  svg { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .bg { fill: #fcfcfb; }
+  .t1 { fill: #0b0b0b; }
+  .t2 { fill: #52514e; }
+  .t3 { fill: #7a7974; }
+  .grid { stroke: #e4e3df; }
+  .axis { stroke: #b9b8b2; }
+  .muted { fill: #c3c2bd; }
+  .hl { fill: #2a78d6; }
+  .gen { fill: #eaf2fc; stroke: #2a78d6; }
+  .cut { fill: #fdf0ea; stroke: #eb6834; }
+  .badge-gen { fill: #2a78d6; }
+  .badge-cut { fill: #eb6834; }
+  .badge-tx { fill: #ffffff; }
+  .arrow { stroke: #7a7974; fill: none; }
+  .arrowhead { fill: #7a7974; }
+  .loop { stroke: #2a78d6; fill: none; }
+  .loophead { fill: #2a78d6; }
+  .wall { fill: #a8a7a1; }
+  .zone { fill: #a8a7a1; fill-opacity: 0.12; stroke: #7a7974; }
+  .inside { fill: #e34948; }
+  .edge { fill: #eda100; }
+  .out { fill: #1baf7a; }
+  .ring { stroke: #fcfcfb; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #1a1a19; }
+    .t1 { fill: #f0efec; }
+    .t2 { fill: #c3c2b7; }
+    .t3 { fill: #9a998f; }
+    .grid { stroke: #33332f; }
+    .axis { stroke: #55544e; }
+    .muted { fill: #55544e; }
+    .hl { fill: #3987e5; }
+    .gen { fill: #1b2a3d; stroke: #3987e5; }
+    .cut { fill: #3a241b; stroke: #d95926; }
+    .badge-gen { fill: #3987e5; }
+    .badge-cut { fill: #d95926; }
+    .arrow { stroke: #9a998f; }
+    .arrowhead { fill: #9a998f; }
+    .loop { stroke: #3987e5; }
+    .loophead { fill: #3987e5; }
+    .wall { fill: #77766f; }
+    .zone { fill: #77766f; fill-opacity: 0.18; stroke: #9a998f; }
+    .inside { fill: #e66767; }
+    .edge { fill: #c98500; }
+    .out { fill: #199e70; }
+    .ring { stroke: #1a1a19; }
+  }
+</style>
+<rect class="bg" x="0" y="0" width="900" height="400" rx="12"/>
+<text x="25" y="44" class="t2" font-size="14" font-weight="600" text-anchor="start">1. Push past the obvious</text>
+<text x="25" y="384" class="t2" font-size="14" font-weight="600" text-anchor="start">2. Check originality and feasibility</text>
+<rect class="gen" x="25" y="70" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-gen" cx="47" cy="94" r="12"/>
+<text x="47" y="99" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<text x="67" y="99" class="t1" font-size="14" font-weight="600" text-anchor="start">Pin the brief</text>
+<text x="41" y="128" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Who it's for, budget, time.</text>
+<text x="41" y="146" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Sets the payoff test.</text>
+<rect class="gen" x="245" y="70" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-gen" cx="267" cy="94" r="12"/>
+<text x="267" y="99" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="287" y="99" class="t1" font-size="14" font-weight="600" text-anchor="start">Write the cliché wall</text>
+<text x="261" y="128" class="t2" font-size="12.5" font-weight="400" text-anchor="start">The ideas any AI would</text>
+<text x="261" y="146" class="t2" font-size="12.5" font-weight="400" text-anchor="start">give. All banned.</text>
+<rect class="gen" x="465" y="70" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-gen" cx="487" cy="94" r="12"/>
+<text x="487" y="99" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">3</text>
+<text x="507" y="99" class="t1" font-size="14" font-weight="600" text-anchor="start">Draw a map</text>
+<text x="481" y="128" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Two axes for the brief.</text>
+<text x="481" y="146" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Spread ideas across cells.</text>
+<rect class="gen" x="685" y="70" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-gen" cx="707" cy="94" r="12"/>
+<text x="707" y="99" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">4</text>
+<text x="727" y="99" class="t1" font-size="14" font-weight="600" text-anchor="start">Generate</text>
+<text x="701" y="128" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Forcing techniques. Cut</text>
+<text x="701" y="146" class="t2" font-size="12.5" font-weight="400" text-anchor="start">likely ones, make bolder.</text>
+<rect class="cut" x="685" y="250" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-cut" cx="707" cy="274" r="12"/>
+<text x="707" y="279" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">5</text>
+<text x="727" y="279" class="t1" font-size="14" font-weight="600" text-anchor="start">Vector check</text>
+<text x="701" y="308" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Embed every idea. Drop</text>
+<text x="701" y="326" class="t2" font-size="12.5" font-weight="400" text-anchor="start">the ones in the crowd.</text>
+<rect class="cut" x="465" y="250" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-cut" cx="487" cy="274" r="12"/>
+<text x="487" y="279" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">6</text>
+<text x="507" y="279" class="t1" font-size="14" font-weight="600" text-anchor="start">Skeptical judge</text>
+<text x="481" y="308" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Blind review: originality,</text>
+<text x="481" y="326" class="t2" font-size="12.5" font-weight="400" text-anchor="start">reality, payoff, red team.</text>
+<rect class="cut" x="245" y="250" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-cut" cx="267" cy="274" r="12"/>
+<text x="267" y="279" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">7</text>
+<text x="287" y="279" class="t1" font-size="14" font-weight="600" text-anchor="start">Shortlist</text>
+<text x="261" y="308" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Feasibility 4+, Payoff 3+.</text>
+<text x="261" y="326" class="t2" font-size="12.5" font-weight="400" text-anchor="start">One last wall check.</text>
+<rect class="cut" x="25" y="250" width="190" height="96" rx="10" stroke-width="1.5"/>
+<circle class="badge-cut" cx="47" cy="274" r="12"/>
+<text x="47" y="279" class="badge-tx" font-size="13" font-weight="700" text-anchor="middle">8</text>
+<text x="67" y="279" class="t1" font-size="14" font-weight="600" text-anchor="start">Show the work</text>
+<text x="41" y="308" class="t2" font-size="12.5" font-weight="400" text-anchor="start">Finalists, first steps,</text>
+<text x="41" y="326" class="t2" font-size="12.5" font-weight="400" text-anchor="start">and what got dropped.</text>
+<line class="arrow" x1="218" y1="118.0" x2="235.0" y2="118.0" stroke-width="2"/>
+<polygon class="arrowhead" points="242.0,118.0 235.0,123.0 235.0,113.0"/>
+<line class="arrow" x1="438" y1="118.0" x2="455.0" y2="118.0" stroke-width="2"/>
+<polygon class="arrowhead" points="462.0,118.0 455.0,123.0 455.0,113.0"/>
+<line class="arrow" x1="658" y1="118.0" x2="675.0" y2="118.0" stroke-width="2"/>
+<polygon class="arrowhead" points="682.0,118.0 675.0,123.0 675.0,113.0"/>
+<line class="arrow" x1="682" y1="298.0" x2="665.0" y2="298.0" stroke-width="2"/>
+<polygon class="arrowhead" points="658.0,298.0 665.0,293.0 665.0,303.0"/>
+<line class="arrow" x1="462" y1="298.0" x2="445.0" y2="298.0" stroke-width="2"/>
+<polygon class="arrowhead" points="438.0,298.0 445.0,293.0 445.0,303.0"/>
+<line class="arrow" x1="242" y1="298.0" x2="225.0" y2="298.0" stroke-width="2"/>
+<polygon class="arrowhead" points="218.0,298.0 225.0,293.0 225.0,303.0"/>
+<line class="arrow" x1="740.0" y1="170" x2="740.0" y2="239.0" stroke-width="2"/>
+<polygon class="arrowhead" points="740.0,246.0 735.0,239.0 745.0,239.0"/>
+<line class="loop" x1="820.0" y1="246" x2="820.0" y2="177.0" stroke-width="2"/>
+<polygon class="loophead" points="820.0,170.0 825.0,177.0 815.0,177.0"/>
+<text x="728.0" y="200" class="loophead" font-size="11.5" font-weight="600" text-anchor="end">Too close to the wall?</text>
+<text x="728.0" y="216" class="loophead" font-size="11.5" font-weight="600" text-anchor="end">Write more toward open space.</text>
+</svg>
